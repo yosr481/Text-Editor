@@ -72,5 +72,60 @@ namespace WpfApp1
 
             TxtBoxDoc.FontFamily = new FontFamily("Showcard Gothic");
         }
+
+        bool comboFSClosed = true;
+
+        private void ComboFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboFSClosed) ChangeTBFontSize();
+            comboFSClosed = true;
+        }
+
+        private void ComboFontSize_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            comboFSClosed = !comboBox.IsDropDownOpen;
+            ChangeTBFontSize();
+        }
+
+        private void ChangeTBFontSize()
+        {
+            string fontSize = comboFontSize.SelectedItem.ToString();
+            fontSize = fontSize.Substring(fontSize.Length - 2);
+
+            switch (fontSize)
+            {
+                case "10":
+                    TxtBoxDoc.FontSize = 10;
+                    break;
+                case "12":
+                    TxtBoxDoc.FontSize = 12;
+                    break;
+                case "14":
+                    TxtBoxDoc.FontSize = 14;
+                    break;
+                case "16":
+                    TxtBoxDoc.FontSize = 16;
+                    break;
+                case "18":
+                    TxtBoxDoc.FontSize = 18;
+                    break;
+                case "20":
+                    TxtBoxDoc.FontSize = 20;
+                    break;
+                case "24":
+                    TxtBoxDoc.FontSize = 24;
+                    break;
+                case "36":
+                    TxtBoxDoc.FontSize = 36;
+                    break;
+                case "48":
+                    TxtBoxDoc.FontSize = 48;
+                    break;
+                case "72":
+                    TxtBoxDoc.FontSize = 72;
+                    break;
+            }
+        }
     }
 }

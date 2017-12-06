@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Yossi's Text Editor" Height="350" Width="525">
+        Title="Yossi's Text Editor" Height="350" Width="525"
+        Icon="./Resources/Editor_16x.ico">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -61,7 +62,42 @@
             </MenuItem>
         </Menu>
 
-        <TextBox x:Name="TxtBoxDoc" Height="290" Width="500" />
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button x:Name="tbOpen" ToolTip="Open File" Click="MenuOpen_Click">
+                    <Image Source="./Resources/OpenFile_16x.png"></Image>
+                </Button>
+                <Button x:Name="tbSave" ToolTip="Save File" Click="MenuSave_Click">
+                    <Image Source="./Resources/Save_16x.png"></Image>
+                </Button>
+                <Button x:Name="tbCut" Command="ApplicationCommands.Cut">
+                    <Image Source="./Resources/Cut_16x.png"></Image>
+                </Button>
+                <Button x:Name="tbCopy" Command="ApplicationCommands.Copy">
+                    <Image Source="./Resources/Copy_16x.png"></Image>
+                </Button>
+                <Button x:Name="tbPaste" Command="ApplicationCommands.Paste">
+                    <Image Source="./Resources/Paste_16x.png"></Image>
+                </Button>
+                <Separator />
+                <Label>Font Size:</Label>
+                <ComboBox x:Name="comboFontSize" SelectionChanged="ComboFontSize_SelectionChanged"
+                          DropDownClosed="ComboFontSize_DropDownClosed">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">12</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>24</ComboBoxItem>
+                    <ComboBoxItem>36</ComboBoxItem>
+                    <ComboBoxItem>48</ComboBoxItem>
+                    <ComboBoxItem>72</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+
+        <TextBox x:Name="TxtBoxDoc" Height="290" Width="500" FontSize="12"/>
 
     </DockPanel>
 </Window>

@@ -102,5 +102,8 @@
     <Resource Include="Resources\Paste_16x.png" />
     <Resource Include="Resources\Save_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Editor_16x.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
