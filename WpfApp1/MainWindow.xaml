@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Yossi's Text Editor" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menuNew" Header="_New" InputGestureText="Ctrl+N" Click="MenuNew_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/NewFile_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuOpen" Header="_Open" InputGestureText="Ctrl+O" Click="MenuOpen_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/OpenFile_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuSave" Header="_Save" InputGestureText="Ctrl+S" Click="MenuSave_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Save_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuExit" Header="E_xit" InputGestureText="Alt+F4" Click="MenuExit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Exit_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem x:Name="Copy" Header="_Copy" Command="ApplicationCommands.Copy" 
+                          InputGestureText="Ctrl+C">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Copy_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Cut" Header="_Cut" Command="ApplicationCommands.Cut" 
+                          InputGestureText="Ctrl+X">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Cut_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Paste" Header="_Paste" Command="ApplicationCommands.Paste" 
+                          InputGestureText="Ctrl+V">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Paste_16x.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Fonts" InputGestureText="Ctrl+F">
+                    <MenuItem x:Name="menuFontTimes" Header="Times New Roman" IsCheckable="True"
+                              StaysOpenOnClick="True" Click="MenuFontTimes_Click"></MenuItem>
+                    <MenuItem x:Name="menuFontArial" Header="Arial" IsCheckable="True"
+                              StaysOpenOnClick="True" Click="MenuFontArial_Click"></MenuItem>
+                    <MenuItem x:Name="menuFontShowcard" Header="Showcard Gothic" IsCheckable="True"
+                              StaysOpenOnClick="True" Click="MenuFontShowcard_Click"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <TextBox x:Name="TxtBoxDoc" Height="290" Width="500" />
+
+    </DockPanel>
 </Window>

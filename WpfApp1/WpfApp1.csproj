@@ -93,5 +93,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Copy_16x.png" />
+    <Resource Include="Resources\Cut_16x.png" />
+    <Resource Include="Resources\Exit_16x.png" />
+    <Resource Include="Resources\NewFile_16x.png" />
+    <Resource Include="Resources\OpenFile_16x.png" />
+    <Resource Include="Resources\Paste_16x.png" />
+    <Resource Include="Resources\Save_16x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
