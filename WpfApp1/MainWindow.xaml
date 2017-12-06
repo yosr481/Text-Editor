@@ -97,7 +97,8 @@
             </ToolBar>
         </ToolBarTray>
 
-        <TextBox x:Name="TxtBoxDoc" Height="290" Width="500" FontSize="12"/>
+        <TextBox x:Name="TxtBoxDoc" Height="290" Width="500" FontSize="12" AcceptsReturn="True"
+                  AutoWordSelection="True"/>
 
     </DockPanel>
 </Window>
