@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApp1
 {
@@ -28,19 +29,34 @@ namespace WpfApp1
 
         private void MenuNew_Click(object sender, RoutedEventArgs e)
         {
-            
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.ShowDialog();
+            using (FileStream fs = new FileStream(saveFile.FileName, FileMode.Create))
+            {
+                byte[] txtByteArr = Encoding.Default.GetBytes(TxtBoxDoc.Text);
+                fs.Write(txtByteArr, 0, txtByteArr.Length);
+            }
         }
 
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.ShowDialog();
+            using (StreamReader fs = File.OpenText(openFile.FileName))
+            {
+                TxtBoxDoc.Text = fs.ReadToEnd();
+            }
         }
 
         private void MenuSave_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.ShowDialog();
+            using(FileStream fs = new FileStream(saveFile.FileName, FileMode.Create))
+            {
+                byte[] txtByteArr = Encoding.Default.GetBytes(TxtBoxDoc.Text);
+                fs.Write(txtByteArr, 0, txtByteArr.Length);
+            }
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
